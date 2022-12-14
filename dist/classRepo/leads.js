@@ -2,8 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Lead = void 0;
 class Lead {
-    constructor(_id, leadOwner, salutation, firstName, lastName, company, email, title, rating, followUp, status, numberOfEmployees, leadSource, annualRevenue, industry, description) {
-        this._id = _id;
+    constructor(leadOwner, salutation, firstName, lastName, company, email, title, rating, followUp, status, numberOfEmployees, leadSource, annualRevenue, industry, description) {
         this.leadOwner = leadOwner;
         this.salutation = salutation;
         this.firstName = firstName;
@@ -42,7 +41,6 @@ class Lead {
     }
     toJson() {
         return {
-            "_id": this._id,
             "leadOwner": this.leadOwner,
             "salutation": this.salutation,
             "firstName": this.firstName,

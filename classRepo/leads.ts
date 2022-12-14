@@ -1,32 +1,7 @@
+import { IndustryType, LeadRatings, LeadSources, LeadStatuses } from "../utils/myTypes";
 
-type IndustryType = "Agriculture; plantations,other rural sectors"
-    | "Basic Metal Production"
-    | "Chemical industries"
-    | "Commerce"
-    | "Construction"
-    | "Education"
-    | "Financial services, professional services"
-    | "Food, drink, tobacco"
-    | "Forestry, wood, pulp and paper"
-    | "Health services"
-    | "Hotels, tourism, catering"
-    | "Mining (coal other mining)"
-    | "Mechanical and electrical engineering"
-    | "Media, culture, graphical"
-    | "Oil and gas production, oil refining"
-    | "Postal and telecommunications services"
-    | "Public service"
-    | "Shipping, ports, fisheries, inland waterways"
-    | "Textiles, clothing, leather, footwear"
-    | "Transport (including civil aviation, railways, road transport)"
-    | "Transport equipment manufacturing"
-    | "Utilities (water, gas, electricity)";
-type LeadStatuses = 'New' | 'Contacted' | 'Working' | 'Qualified' | 'Unqualified';
-type LeadSources = 'Advertisment' | 'Employee Referal' | 'External Referal' | 'In-Store' | 'On Site' | 'Other' | 'Social' | 'Trade Show' | 'Web' | 'Word of mouth';
-type LeadRatings = 'Hot' | 'Warm' | 'Cold';
 
-interface iLead {
-    _id: string;
+export interface iLead {
     leadOwner: string;
     salutation: string;
     firstName: string;
@@ -45,7 +20,6 @@ interface iLead {
 }
 
 export class Lead implements iLead {
-    _id:string;
     leadOwner: string;
     salutation: string;
     firstName: string;
@@ -63,7 +37,6 @@ export class Lead implements iLead {
     description: string;
 
     constructor(
-        _id:string,
         leadOwner: string,
         salutation: string,
         firstName: string,
@@ -79,8 +52,6 @@ export class Lead implements iLead {
         annualRevenue: number,
         industry: IndustryType,
         description: string) {
-
-        this._id = _id;
         this.leadOwner = leadOwner;
         this.salutation = salutation;
         this.firstName = firstName;
@@ -122,7 +93,6 @@ export class Lead implements iLead {
 
     toJson() {
         return {
-            "_id": this._id,
             "leadOwner": this.leadOwner,
             "salutation": this.salutation,
             "firstName": this.firstName,
